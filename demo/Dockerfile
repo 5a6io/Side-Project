@@ -1,4 +1,4 @@
-FROM openjdk:27-ea-17-jdk-slim AS builder
+FROM openjdk:27-ea-17-jdk AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN chmod +x gradlew
 COPY src ./src
 RUN ./gradlew --no-daemon clean bootJar -x test
 
-FROM openjdk:27-ea-17-slim
+FROM openjdk:27-ea-17-jdk
 
 WORKDIR /app
 
